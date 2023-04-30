@@ -1,0 +1,11 @@
+#firstDiv{
+    height: 100vh;
+    display: flex;
+    align-content: center;
+};
+
+#secondDiv{
+    margin: 0px;
+    border: 10px solid black;
+
+};

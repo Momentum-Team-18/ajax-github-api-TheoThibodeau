@@ -1,5 +1,7 @@
-let mainContainer = document.querySelector("#mainContainer");
-console.log(mainContainer);
+// let mainContainer = document.querySelector("#mainContainer");
+let firstDiv = document.querySelector("#firstDiv");
+let secondDiv = document.querySelector("#secondDiv");
+let thirdDiv = document.querySelector("#thirdDiv");
 
 let gitUrl = "https://api.github.com/users/TheoThibodeau";
 console.log(gitUrl);
@@ -16,54 +18,57 @@ fetch(gitUrl, {
 .then(function(info) {
     
     //profile pic
-    let firstDiv = document.createElement('div');
 
     let gitHubPic = document.createElement('img');
     gitHubPic.src = info.avatar_url;
-    gitHubPic.classList.add("gitHubPic");
+    firstDiv.classList.add("#firstDiv");
 
     firstDiv.appendChild(gitHubPic);
-    mainContainer.appendChild(firstDiv);
 
     //location & personal info
-    let secondDiv = document.createElement('div');
-    let locationGit = document.createElement('p');
-    
-    locationGit.innerText = `Location : ${info.location} \n gitUrl: TheoThibodeau \n GitHub Username: TheoThibodeau`
-    console.log(locationGit);
+    let locationGit = document.createElement('h5');
+    locationGit.innerText = `Location : ${info.location} \n GitHub Username: ${info.name} \n GitHub Url: ${info.url}`;
 
     secondDiv.appendChild(locationGit);
-    mainContainer.appendChild(secondDiv);
+}
+);
+   
+fetch("https://api.github.com/users/TheoThibodeau/repos",
+    {   method: "GET",
+        headers: {"Content-Type": "application/json"},
+})
 
-    //GitHub Repos
-});
+.then(function(response) {
+    return response.json();
+})
 
-.then(function(info){
-    fetch(, {
-        method: "GET",
-        headers: {"Content-Type": "application/json" },)
-});
+.then(function(info) {
+for(let i=0; i < info.length; i++) {
+    let repoLink = document.createElement('a');
+    let repoName = document.createTextNode(info[i].name);
+    repoLink.appendChild(repoName);
+    repoLink.title = info[i].name;
+    repoLink.href = info[i].html_url;
+    thirdDiv.appendChild(repoLink);
+};
 
-
-
-
-
-
-
-
-
-
-// let createUserCard = function(userData) {
-//     let query = ["name", "avatar_url", "location", "html_url", "login", "repos_url_"]
-
-// for (let type of query){
-//     let 
-// }
-    
-// };
+})
 
 
-// let gitHubId = document.createElement('div');
 
 
-    
+
+//  fetch(repos_url, {
+//         method: "GET",
+//         headers: {"Content-Type": "application/json" },
+//     });
+
+//     then(function(response) {
+//         return response.json();
+//     });
+
+//     then(function(info) {
+//         let thirdDiv = document.createElement ('div');
+
+
+//     });
