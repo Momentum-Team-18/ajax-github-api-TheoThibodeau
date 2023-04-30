@@ -1,11 +1,26 @@
 #firstDiv{
-    height: 100vh;
+    height: 20vh;
     display: flex;
     align-content: center;
 };
 
+.gitHubPic {
+    border-radius: 10em 15em;
+}
 #secondDiv{
     margin: 0px;
-    border: 10px solid black;
-
+    border: 1px solid lightgray;
 };
+
+#thirdDiv{
+    margin: 0px;
+    border: 1px solid lightgray;
+    font-size: small;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#repoContainer {
+    border: 1px solid lightgray;
+    margin: 0px;
+};
+

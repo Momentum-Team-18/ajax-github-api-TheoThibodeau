@@ -21,13 +21,14 @@ fetch(gitUrl, {
 
     let gitHubPic = document.createElement('img');
     gitHubPic.src = info.avatar_url;
-    firstDiv.classList.add("#firstDiv");
+    gitHubPic.classList.add("gitHubPic")
+    // firstDiv.classList.add("#firstDiv");
 
     firstDiv.appendChild(gitHubPic);
 
     //location & personal info
     let locationGit = document.createElement('h5');
-    locationGit.innerText = `Location : ${info.location} \n GitHub Username: ${info.name} \n GitHub Url: ${info.url}`;
+    locationGit.innerText = `Location : ${info.location} \n GitHub Username: ${info.login} \n GitHub Url: ${info.url}`;
 
     secondDiv.appendChild(locationGit);
 }
@@ -52,23 +53,4 @@ for(let i=0; i < info.length; i++) {
     thirdDiv.appendChild(repoLink);
 };
 
-})
-
-
-
-
-
-//  fetch(repos_url, {
-//         method: "GET",
-//         headers: {"Content-Type": "application/json" },
-//     });
-
-//     then(function(response) {
-//         return response.json();
-//     });
-
-//     then(function(info) {
-//         let thirdDiv = document.createElement ('div');
-
-
-//     });
+});
